@@ -1,0 +1,52 @@
+.pytest_cache/
+.idea
+.Pipfile.lock
+tests/source/users.json
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+geckodriver.log
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.cache
+coverage.xml
+
+# Translations
+*.mo
+*.pot
+
+# PyBuilder
+target/
+
+
+
+
