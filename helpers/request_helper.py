@@ -1,5 +1,5 @@
 import requests
-from unit_test_demo.config.env_setup import EnvSetup
+from config.env_setup import EnvSetup
 
 
 class RequestHelper:
