@@ -1,6 +1,6 @@
 import unittest
 from hamcrest import assert_that, greater_than
-from unit_test_demo.helpers.photo_helper import PhotoHelper
+from helpers.photo_helper import PhotoHelper
 
 
 class TestStringMethods(unittest.TestCase):

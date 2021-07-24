@@ -1,4 +1,4 @@
-from unit_test_demo.helpers.request_helper import RequestHelper
+from helpers.request_helper import RequestHelper
 
 
 class PhotoHelper(RequestHelper):
