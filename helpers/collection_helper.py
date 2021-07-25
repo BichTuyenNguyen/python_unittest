@@ -15,12 +15,12 @@ class CollectionHelper(RequestHelper):
     @staticmethod
     def create_collection(title, description, private):
         endpoint = '/collections'
-        params = {
-            'title': '{title}'.format(title=title),                             # Required
-            'description': '{description}'.format(description=description),     # Optional
-            'private': '{private}'.format(private=private)                      # Optional
+        data = {
+            'title': title,                             # Required
+            'description': description,     # Optional
+            'private': private                      # Optional
         }
-        return RequestHelper.post(endpoint=endpoint, headers=True, params=params)
+        return RequestHelper.post(endpoint=endpoint, headers=True, data=data)
 
     @staticmethod
     def update_collection(collection_id, title, description, private):

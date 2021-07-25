@@ -15,7 +15,7 @@ class TestCaseStringMethods(unittest.TestCase):
 
     def test_add_a_photo_to_collection(self):
         # Add photo to collection
-        response= CollectionHelper.add_photo_to_collection(self.collection_id, self.photo_id)
+        response = CollectionHelper.add_photo_to_collection(self.collection_id, self.photo_id)
 
         actual_total_photo = response.json()['photo']['current_user_collections'][0]['total_photos']
         print('collection_current_add_photo: ' + str(actual_total_photo))
