@@ -1,5 +1,5 @@
 from helpers.request_helper import RequestHelper
-from helpers.endpoints import GET_PHOTO_ENDPOINT
+from helpers.endpoints import GET_PHOTO_ENDPOINT, GET_A_PHOTO_INFO_ENDPOINT
 
 
 class PhotoHelper(RequestHelper):
@@ -21,3 +21,7 @@ class PhotoHelper(RequestHelper):
     def like_a_photo(photo_id):
         endpoint = '/photos/{id}/like'.format(id=photo_id)
         return RequestHelper.post(endpoint=endpoint, headers=True)
+
+    @staticmethod
+    def get_a_photo_infomation(id):
+        return RequestHelper.get(endpoint=GET_A_PHOTO_INFO_ENDPOINT.format(id), headers=True)
