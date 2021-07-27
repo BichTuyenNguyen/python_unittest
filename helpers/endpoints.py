@@ -2,3 +2,4 @@
 GET_PHOTO_ENDPOINT = '/photos/{id}'
 GET_USER_PROFILE_ENDPOINT = '/users/{}'
 GET_A_PHOTO_INFO_ENDPOINT = '/photos/{}'
+GET_A_PHOTO_INFOMATION_ENDPOINT = '/photos/{id}'
