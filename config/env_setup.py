@@ -3,5 +3,5 @@ import os
 
 class EnvSetup:
     API = os.getenv('API', 'https://api.unsplash.com')
-    TOKEN = os.getenv('TOKEN', 'XVu_3P_7WQ_zEEH7v_66TWW8eN7YVhLTdcikzGRCIso')
+    TOKEN = os.getenv('TOKEN', 'iVsrOL71QA-AOJ_JeeCCIiT1fP3eN6uNJhQz3IFdSNs')
 

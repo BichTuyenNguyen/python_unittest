@@ -1,55 +1,51 @@
 from helpers.request_helper import RequestHelper
-
+from helpers.endpoints import GET_COLLECTION_ENDPOINT, GET_COLLECTION_PHOTO_ENDPOINT, CREATE_COLLECTION_ENDPOINT,COLLECTION_ID_ENDPOINT, ADD_PHOTO_TO_COLLECTION_ENDPOINT, REMOVE_PHOTO_FROM_COLLECTION_ENDPOINT
 
 class CollectionHelper(RequestHelper):
     @staticmethod
     def get_collection(collection_id):
-        endpoint = '/collections/{id}'.format(id=collection_id)
-        return RequestHelper.get(endpoint=endpoint, headers=True)
+        # endpoint = '/collections/{id}'.format(id=collection_id)
+        return RequestHelper.get(endpoint=GET_COLLECTION_ENDPOINT.format(id=collection_id), headers=True)
 
     @staticmethod
     def get_collection_photo(collection_id):
-        endpoint = '/collections/{id}/photos'.format(id=collection_id)
-        return RequestHelper.get(endpoint=endpoint, headers=True)
+        # endpoint = '/collections/{id}/photos'.format(id=collection_id)
+        return RequestHelper.get(endpoint=GET_COLLECTION_PHOTO_ENDPOINT.format(id=collection_id), headers=True)
 
     @staticmethod
     def create_collection(title, description, private):
-        endpoint = '/collections'
+        # endpoint = '/collections'
         data = {
             'title': title,                             # Required
             'description': description,     # Optional
             'private': private                      # Optional
         }
-        return RequestHelper.post(endpoint=endpoint, headers=True, data=data)
+        return RequestHelper.post(endpoint=CREATE_COLLECTION_ENDPOINT, headers=True, data=data)
 
     @staticmethod
     def update_collection(collection_id, title, description, private):
-        endpoint = '/collections/{id}'.format(id=collection_id)
         params = {
-            'title': '{title}'.format(title=title),                             # Required
-            'description': '{description}'.format(description=description),     # Optional
-            'private': '{private}'.format(private=private)                      # Optional
+            'title': title,                             # Required
+            'description': description,     # Optional
+            'private': private                      # Optional
         }
-        return RequestHelper.put(endpoint=endpoint, headers=True, params=params)
+        return RequestHelper.put(endpoint=COLLECTION_ID_ENDPOINT.format(id=collection_id), headers=True, params=params)
 
     @staticmethod
     def delete_collection(collection_id):
-        endpoint = '/collections/{id}'.format(id=collection_id)
-        return RequestHelper.delete(endpoint=endpoint, headers=True)
+        return RequestHelper.delete(endpoint=COLLECTION_ID_ENDPOINT.format(id=collection_id), headers=True)
 
     @staticmethod
     def add_photo_to_collection(collection_id, photo_id):
-        endpoint = '/collections/{id}/add'.format(id=collection_id)
         params = {
             'photo_id': '{photo_id}'.format(photo_id=photo_id)        # Required
         }
-        return RequestHelper.post(endpoint=endpoint, headers=True, params=params)
+        return RequestHelper.post(endpoint=ADD_PHOTO_TO_COLLECTION_ENDPOINT.format(id=collection_id), headers=True, params=params)
 
     @staticmethod
     def remove_photo_from_collection(collection_id, photo_id):
-        endpoint = '/collections/{id}/remove'.format(id=collection_id)
         params = {
-            'collection_id': '{id}'.format(id=collection_id),  # Required
-            'photo_id': '{photo_id}'.format(photo_id=photo_id)  # Required
+            'collection_id': id,  # Required
+            'photo_id': photo_id  # Required
         }
-        return RequestHelper.delete(endpoint=endpoint, headers=True, params=params)
+        return RequestHelper.delete(endpoint=REMOVE_PHOTO_FROM_COLLECTION_ENDPOINT.format(id=collection_id), headers=True, params=params)
