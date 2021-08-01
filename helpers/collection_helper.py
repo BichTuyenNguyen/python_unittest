@@ -38,7 +38,7 @@ class CollectionHelper(RequestHelper):
     @staticmethod
     def add_photo_to_collection(collection_id, photo_id):
         params = {
-            'photo_id': '{photo_id}'.format(photo_id=photo_id)        # Required
+            'photo_id': photo_id       # Required
         }
         return RequestHelper.post(endpoint=ADD_PHOTO_TO_COLLECTION_ENDPOINT.format(id=collection_id), headers=True, params=params)
 

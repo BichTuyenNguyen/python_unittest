@@ -3,7 +3,7 @@ from hamcrest import assert_that, contains_string, equal_to
 from helpers.user_helper import UserHelper
 
 
-class TestCaseStringMethods(unittest.TestCase):
+class TestCaseStringABCMethods(unittest.TestCase):
     def test_add_a_photo_to_collection(self):
 
         response = UserHelper.get_user_profile("jarritos")
