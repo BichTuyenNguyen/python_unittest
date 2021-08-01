@@ -3,7 +3,7 @@ from hamcrest import assert_that, equal_to
 from helpers.user_helper import UserHelper
 
 
-class TestStringMethods(unittest.TestCase):
+class GetUserProfileTestCase(unittest.TestCase):
     def test_get_username(self):
 
         response = UserHelper.get_user_profile("mailchimp")

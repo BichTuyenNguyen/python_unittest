@@ -1,10 +1,10 @@
 import unittest
-from hamcrest import assert_that, greater_than
+from hamcrest import assert_that
 from helpers.collection_helper import CollectionHelper
 from helpers.photo_helper import PhotoHelper
 
 
-class TestCaseStringMethods(unittest.TestCase):
+class AddCollectionTestCase(unittest.TestCase):
     def setUp(self):
         # Get photo
         self.photo_id = PhotoHelper.get_a_random_photo().json()['id']

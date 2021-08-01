@@ -1,6 +1,5 @@
 from helpers.request_helper import RequestHelper
-from helpers.endpoints import CREATE_COLLECTION_ENDPOINT, GET_COLLECTION_PHOTO_ENDPOINT, \
-    GET_COLLECTION_ENDPOINT, ADD_PHOTO_TO_COLLECTION_ENDPOINT, DELETE_PHOTO_COLLECTION_ENDPOINT
+from helpers.endpoints import *
 
 
 class CollectionHelper(RequestHelper):

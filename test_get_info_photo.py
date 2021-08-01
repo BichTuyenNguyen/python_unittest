@@ -3,31 +3,33 @@ from hamcrest import assert_that, equal_to
 from helpers.photo_helper import PhotoHelper
 
 
-class TestStringMethods(unittest.TestCase):
+class GetAPhotoInfoTestCase(unittest.TestCase):
     def setUp(self):
-        self.photo_id = PhotoHelper.get_a_photo('LcZ9JhMQ-JQ').json()['id']
+        self.photo_id = 'LcZ9JhMQ-JQ'
 
     def test_get_a_photo_info(self):
+        response = PhotoHelper.get_a_photo(self.photo_id)
         print('self.photo_id: ' + str(self.photo_id))
-        exif = PhotoHelper.get_a_photo_info(self.photo_id).json()['exif']
+        exif = response.json()['exif']
         print('exif: ' + str(exif))
-        make = PhotoHelper.get_a_photo_info(self.photo_id).json()['exif']['make']
+        make = response.json()['exif']['make']
         print('Camera Make: ' + str(make))
-        model = PhotoHelper.get_a_photo_info(self.photo_id).json()['exif']['model']
+        model = response.json()['exif']['model']
         print('Camera Model: ' + str(model))
-        exposure_time = PhotoHelper.get_a_photo_info(self.photo_id).json()['exif']['exposure_time']
+        exposure_time = response.json()['exif']['exposure_time']
         print('Shutter Speed: ' + str(exposure_time) + 's')
-        aperture = PhotoHelper.get_a_photo_info(self.photo_id).json()['exif']['aperture']
+        aperture = response.json()['exif']['aperture']
         print('Aperture: f/' + str(aperture))
-        focal_length = PhotoHelper.get_a_photo_info(self.photo_id).json()['exif']['focal_length']
+        focal_length = response.json()['exif']['focal_length']
         print('Focal Length: ' + str(focal_length) + 'mm')
-        iso = PhotoHelper.get_a_photo_info(self.photo_id).json()['exif']['iso']
+        iso = response.json()['exif']['iso']
         print('ISO: ' + str(iso))
-        height = PhotoHelper.get_a_photo_info(self.photo_id).json()['height']
-        width = PhotoHelper.get_a_photo_info(self.photo_id).json()['width']
+        height = response.json()['height']
+        width = response.json()['width']
         print('Dimensions: ' + str(width) + ' x ' + str(height))
 
         # Assertion
+        assert_that(response.status_code, 200, 'Verify response status code')
         assert_that(make, equal_to("Canon"), 'Verify the make')
         assert_that(model, equal_to("Canon EOS Rebel SL2"), 'Verify the model')
         assert_that(exposure_time, equal_to("1/500"), 'Verify the exposure_time')
