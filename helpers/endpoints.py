@@ -3,6 +3,7 @@ GET_USER_PROFILE_ENDPOINT = '/users/{}'
 
 GET_PHOTO_ENDPOINT = '/photos/{id}'
 GET_A_PHOTO_INFO_ENDPOINT = '/photos/{id}/info'
+GET_A_PHOTO_RELATED_ENDPOINT = '/photos/{id}/related'
 GET_RANDOM_PHOTO_ENDPOINT = '/photos/random'
 LIKE_PHOTO_ENDPOINT = '/photos/{id}/like'
 UNLIKE_PHOTO_ENDPOINT = '/photos/{id}/like'
