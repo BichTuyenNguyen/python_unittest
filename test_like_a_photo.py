@@ -12,6 +12,7 @@ class TestStringMethods(unittest.TestCase):
         photo_previous_like = PhotoHelper.get_a_photo(self.photo_id).json()['likes']
         print('photo_previous_like: ' + str(photo_previous_like))
 
+
         # 2. Like -> get photo's current like
         response = PhotoHelper.like_a_photo(self.photo_id)
         photo_current_like = response.json()['photo']['likes']

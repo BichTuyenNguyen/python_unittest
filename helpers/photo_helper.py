@@ -1,5 +1,7 @@
+import requests
+
 from helpers.request_helper import RequestHelper
-from helpers.endpoints import GET_PHOTO_ENDPOINT
+from helpers.endpoints import *
 
 
 class PhotoHelper(RequestHelper):
@@ -9,15 +11,30 @@ class PhotoHelper(RequestHelper):
 
     @staticmethod
     def get_a_random_photo():
-        endpoint = '/photos/random'
-        return RequestHelper.get(endpoint=endpoint, headers=True)
+        return RequestHelper.get(endpoint=GET_A_RANDOM_PHOTO_ENDPOINT, headers=True)
 
     @staticmethod
     def unlike_a_photo(photo_id):
-        endpoint = '/photos/{id}/like'.format(id=photo_id)
-        return RequestHelper.delete(endpoint=endpoint, headers=True)
+        return RequestHelper.delete(endpoint=UNLIKE_AND_LIKE_A_PHOTO_ENDPOINT.format(id=photo_id), headers=True)
 
     @staticmethod
     def like_a_photo(photo_id):
-        endpoint = '/photos/{id}/like'.format(id=photo_id)
-        return RequestHelper.post(endpoint=endpoint, headers=True)
+        return RequestHelper.post(endpoint=UNLIKE_AND_LIKE_A_PHOTO_ENDPOINT.format(id=photo_id), headers=True)
+
+    @staticmethod
+    def get_a_photo_infomation(id):
+        return RequestHelper.get(endpoint=GET_A_PHOTO_INFOMATION_ENDPOINT.format(id), headers=True)
+
+    @staticmethod
+    def get_related_photos(photo_id):
+        params = {
+            'id': photo_id  # Required
+        }
+        return RequestHelper.get(endpoint=GET_RELATED_PHOTOS_ENDPOINT.format(id=photo_id), headers=True)
+
+    @staticmethod
+    def update_description_of_photo(photo_id, description):
+        data = {
+            'description': description
+        }
+        return RequestHelper.put(endpoint=UPDATE_A_PHOTO_ENDPOINT.format(id=photo_id), headers=True, data=data)

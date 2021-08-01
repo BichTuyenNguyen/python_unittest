@@ -1,5 +1,5 @@
 import unittest
-from hamcrest import assert_that, greater_than
+from hamcrest import assert_that
 from helpers.collection_helper import CollectionHelper
 from helpers.photo_helper import PhotoHelper
 

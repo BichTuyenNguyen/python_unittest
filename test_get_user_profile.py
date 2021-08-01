@@ -3,10 +3,10 @@ from hamcrest import assert_that, contains_string, equal_to
 from helpers.user_helper import UserHelper
 
 
-class TestCaseStringMethods(unittest.TestCase):
+class TestCaseStringABCMethods(unittest.TestCase):
     def test_add_a_photo_to_collection(self):
 
-        response = UserHelper.get_user_profile("mailchimp")
+        response = UserHelper.get_user_profile("jarritos")
         first_name = response.json()['first_name']
         last_name = response.json()['last_name']
 
@@ -18,7 +18,7 @@ class TestCaseStringMethods(unittest.TestCase):
             fullname = f"{first_name} {last_name}"
 
         assert_that(response.status_code, 200, 'Verify status')
-        assert_that(fullname, equal_to("Mailchimp"), 'Verify the full name')
+        assert_that(fullname, equal_to("Jarritos Mexican Soda"), 'Verify the full name')
 
 
 if __name__ == '__main__':
